@@ -1,10 +1,8 @@
-import requests
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.core.wsgi import get_wsgi_application
 from django.conf import settings
 from django.urls import path
-from django.http import JsonResponse
 
 settings.configure(
     DEBUG=True,

@@ -1,3 +1,1 @@
-Django
-djangorestframework
-gunicorn
+flask gunicorn

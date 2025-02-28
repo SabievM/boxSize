@@ -4,6 +4,7 @@ from django.core.wsgi import get_wsgi_application
 from django.conf import settings
 from django.urls import path
 
+# Конфигурируем Django (без отдельного settings.py)
 settings.configure(
     DEBUG=True,
     ROOT_URLCONF=__name__,
@@ -11,6 +12,7 @@ settings.configure(
     SECRET_KEY="supersecret",
     INSTALLED_APPS=["rest_framework"],
     MIDDLEWARE=[],
+    REST_FRAMEWORK={},  # Добавляем настройку REST_FRAMEWORK
 )
 
 @api_view(["POST"])
@@ -36,8 +38,10 @@ def process_numbers(request):
 
     return Response({"success": True, "sent": result})
 
+# Определяем URL-ы
 urlpatterns = [
     path("process_numbers/", process_numbers),
 ]
 
+# Создаем WSGI-приложение
 application = get_wsgi_application()
